@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-mandrill",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "NodeRED node to send email via the Mandrill Service",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,12 @@
     "dev": "node-red -v"
   },
   "author": "",
-  "keywords": [ "node-red", "contrib-json", "mandrill", "mailchimp" ],
+  "keywords": [
+    "node-red",
+    "contrib-json",
+    "mandrill",
+    "mailchimp"
+  ],
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
