@@ -1,6 +1,6 @@
 # Mandrill for NodeRED
 
-An simple node that sends and email using Mailchimps [Mandrill](https://mandrillapp.com/).
+An simple node that sends an email using Mailchimp's [Mandrill](https://mandrillapp.com/) service.
 
 ## Installation
 
