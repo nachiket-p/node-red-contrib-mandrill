@@ -8,12 +8,17 @@
     "predev": "npm i -g",
     "dev": "node-red -v"
   },
-  "author": "",
+  "author": "Stephen Keep",
+  "contributors": [{
+    "name": "Stephen Keep",
+    "email": "Stephen.Keep@redant.com"
+  }],
   "keywords": [
     "node-red",
     "contrib-json",
     "mandrill",
-    "mailchimp"
+    "mailchimp",
+    "redconnect"
   ],
   "license": "Apache-2.0",
   "repository": {

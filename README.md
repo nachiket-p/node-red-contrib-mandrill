@@ -1,5 +1,7 @@
 # Mandrill for NodeRED
 
+[![RedConnect Approved](https://img.shields.io/badge/RedConnect-Approved-brightgreen.svg?style=flat)](https://www.redconnect.io/addons/mandrill/)
+
 An simple node that sends an email using Mailchimp's [Mandrill](https://mandrillapp.com/) service.
 
 ## Installation
