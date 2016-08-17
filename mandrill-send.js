@@ -34,8 +34,13 @@ module.exports = function(RED) {
             }
 
             _internals.send(payload, function(err, result){
-
-                node.log(err);
+                if (err) {
+                    node.error(err, msg);
+                } else {
+                    payload.result = result || 'success';
+                    msg.payload = payload;
+                    node.send(msg);
+                }
             });
         });
     }
