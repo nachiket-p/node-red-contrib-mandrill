@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-mandrill",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "NodeRED node to send email via the Mandrill Service",
   "main": "index.js",
   "scripts": {
