@@ -48,7 +48,7 @@ module.exports = function (RED) {
                 message.text = message.text ? message.text :n.text;
 
                 payload.template_name = payload.template_name ? payload.template_name : n.template_name;
-                payload.template_content = payload.template_content ? payload.template_content : [JSON.parse(n.template_content)] 
+                payload.template_content = payload.template_content ? payload.template_content : n.template_content ? [JSON.parse(n.template_content)] : "";
             }
 
             _internals.send(payload, function (err, result) {
