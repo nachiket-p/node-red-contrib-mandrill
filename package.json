@@ -33,6 +33,6 @@
     }
   },
   "dependencies": {
-    "mandrill-send": "^0.1.0"
+    "mandrill-api": "^1.0.45"
   }
 }
