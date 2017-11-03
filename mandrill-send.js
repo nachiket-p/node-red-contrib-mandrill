@@ -31,25 +31,25 @@ module.exports = function (RED) {
     function Node(n) {
 
         RED.nodes.createNode(this, n);
-
+        var mandrillConfig = RED.nodes.getNode(n.config);
+        console.log(mandrillConfig.api_key);
         var node = this;
         var payload = {};
-        
-        
-        this.on('input', function (msg) {
-            if(typeof msg.payload === 'object'){
-                payload = msg.payload;
-                payload.api_key = payload.api_key ? payload.api_key : n.api_key;
-                
-                var message = payload.message;
-                message.to = message.to ? message.to : [{email: n.to}];
-                message.from_email = message.from_email ? message.from_email : n.from;
-                message.subject = message.subject ? message.subject :n.subject;
-                message.text = message.text ? message.text :n.text;
 
-                payload.template_name = payload.template_name ? payload.template_name : n.template_name;
-                payload.template_content = payload.template_content ? payload.template_content : n.template_content ? [JSON.parse(n.template_content)] : "";
+        this.on('input', function (msg) {
+            if (typeof msg.payload === 'object') {
+                payload = msg.payload;
             }
+            
+            payload.api_key = payload.api_key ? payload.api_key : mandrillConfig.api_key;
+            var message = payload.message ? payload.message : {};
+            message.to = message.to ? message.to : [{ email: n.to }];
+            message.from_email = message.from_email ? message.from_email : n.from;
+            message.subject = message.subject ? message.subject : n.subject;
+            message.text = message.text ? message.text : n.text;
+            payload.message = message;
+            payload.template_name = payload.template_name ? payload.template_name : n.template_name;
+            payload.template_content = payload.template_content ? payload.template_content : n.template_content ? [JSON.parse(n.template_content)] : "";
 
             _internals.send(payload, function (err, result) {
                 if (err) {

@@ -29,7 +29,8 @@
   },
   "node-red": {
     "nodes": {
-      "mandrill-send": "mandrill-send.js"
+      "mandrill-send": "mandrill-send.js",
+      "mandrill-config": "mandrill-config.js"
     }
   },
   "dependencies": {

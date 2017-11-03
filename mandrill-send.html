@@ -6,81 +6,81 @@
 <!-- First, the content of the edit dialog is defined.                       -->
 
 <script type="text/x-red" data-template-name="mandrill-send">
-
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name of this Event">
-    </div>
-    <div class="form-row">
-        <label for="node-input-api_key">API Key</label>
-        <input type="text" id="node-input-api_key" placeholder="123456789">
-    </div>
-    <div class="form-row">
-        <label for="node-input-mandrill-from">From</label>
-        <input type="text" id="node-input-from" placeholder="sender@example.com">
-    </div>
-    <div class="form-row">
-        <label for="node-input-to">To</label>
-        <input type="text" id="node-input-to" placeholder="recipient@example.com">
-    </div>
-    <div class="form-row">
-        <label for="node-input-subject">Subject</label>
-        <input type="text" id="node-input-subject" placeholder="subject">
-    </div>
-    <div class="form-row">
-        <label for="node-input-text">Text</label>
-        <input type="text" id="node-input-text" placeholder="text">
-    </div>
-    <div class="form-row">
-        <label for="node-input-template_name">Template Name</label>
-        <input type="text" id="node-input-template_name" placeholder="template_name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-template_content">Template Content</label>
-        <input type="text" id="node-input-template_content" placeholder="template_content">
-    </div>
-
-    <p>Note: Pass the HTML body to this node in the payload object.</p>
-</script>
-
-
-<!-- Next, some simple help text is provided for the node.                   -->
-<script type="text/x-red" data-help-name="mandrill-send">
-
-    <h3>About</h3>
-    <p>Send an email using Mandrill API.</p>
-    <p>Sends email with Mandrill template or without template</p>
     
-    <h3>Use</h3>
-    <p>To use either configure the form or pass the parameters through inside the payload.</p>
-    <p>For more information on parameters see the Mandrill API:</p>
-    <p><a href="https://mandrillapp.com/api/docs/messages.JSON.html#method=send">messages-send</a></p>
-</script>
-
-<!-- Finally, the node type is registered along with all of its properties   -->
-<!-- The example below shows a small subset of the properties that can be set-->
-<script type="text/javascript">
-    RED.nodes.registerType('mandrill-send',{
-        category: 'email',
-        defaults: {    
-            name: {value:""},
-            api_key: {value:""},
-            from: {value:""},
-            to: {value:""}, 
-            subject: {value:""}, 
-            html: {value:""},
-            text: {value:""},
-            template_name: {value:""},
-            template_content: {value: []},
-        },
-        inputs:1,               // set the number of inputs - only 0 or 1
-        outputs:1,              // set the number of outputs - 0 to n
-        icon: "envelope.png",     // saved in  icons/myicon.png
-        color: "#E2E2E5", 
-        label: function() {
-            return this.name || "Send Email";
-        },
-        paletteLabel: "Mandrill"
+        <div class="form-row">
+            <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+            <input type="text" id="node-input-name" placeholder="Name of this Event">
+        </div>
+        <div class="form-row">
+            <label for="node-input-config">API Key</label>
+            <input type="text" id="node-input-config" placeholder="123456789">
+        </div>
+        <div class="form-row">
+            <label for="node-input-mandrill-from">From</label>
+            <input type="text" id="node-input-from" placeholder="sender@example.com">
+        </div>
+        <div class="form-row">
+            <label for="node-input-to">To</label>
+            <input type="text" id="node-input-to" placeholder="recipient@example.com">
+        </div>
+        <div class="form-row">
+            <label for="node-input-subject">Subject</label>
+            <input type="text" id="node-input-subject" placeholder="subject">
+        </div>
+        <div class="form-row">
+            <label for="node-input-text">Text</label>
+            <input type="text" id="node-input-text" placeholder="text">
+        </div>
+        <div class="form-row">
+            <label for="node-input-template_name">Template Name</label>
+            <input type="text" id="node-input-template_name" placeholder="template_name">
+        </div>
+        <div class="form-row">
+            <label for="node-input-template_content">Template Content</label>
+            <input type="text" id="node-input-template_content" placeholder="template_content">
+        </div>
+    
+        <p>Note: Pass the HTML body to this node in the payload object.</p>
+    </script>
+    
+    
+    <!-- Next, some simple help text is provided for the node.                   -->
+    <script type="text/x-red" data-help-name="mandrill-send">
+    
+        <h3>About</h3>
+        <p>Send an email using Mandrill API.</p>
+        <p>Sends email with Mandrill template or without template</p>
         
-    });
-</script>
+        <h3>Use</h3>
+        <p>To use either configure the form or pass the parameters through inside the payload.</p>
+        <p>For more information on parameters see the Mandrill API:</p>
+        <p><a href="https://mandrillapp.com/api/docs/messages.JSON.html#method=send">messages-send</a></p>
+    </script>
+    
+    <!-- Finally, the node type is registered along with all of its properties   -->
+    <!-- The example below shows a small subset of the properties that can be set-->
+    <script type="text/javascript">
+        RED.nodes.registerType('mandrill-send',{
+            category: 'email',
+            defaults: {    
+                name: {value:""},
+                config: {value:"", type: "mandrill-config" },
+                from: {value:""},
+                to: {value:""}, 
+                subject: {value:""}, 
+                html: {value:""},
+                text: {value:""},
+                template_name: {value:""},
+                template_content: {value: []},
+            },
+            inputs:1,               // set the number of inputs - only 0 or 1
+            outputs:1,              // set the number of outputs - 0 to n
+            icon: "envelope.png",     // saved in  icons/myicon.png
+            color: "#E2E2E5", 
+            label: function() {
+                return this.name || "Send Email";
+            },
+            paletteLabel: "Mandrill"
+            
+        });
+    </script>
